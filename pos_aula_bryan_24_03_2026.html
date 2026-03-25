@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Bryan — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Prepositions of Time & Place + Directions</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Bryan &nbsp;•&nbsp;
+            <strong>Data:</strong> 24/03/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Revisão de <strong>sounds like / looks like</strong>, preposições de tempo e lugar e introdução a <strong>directions</strong> para pedir e entender caminhos.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              A aula começou com uma conversa sobre rotina, estudos, busca por estágio e pressão para encontrar trabalho. Depois disso, fizemos uma revisão importante de estruturas vistas na aula anterior, especialmente <strong>sounds like, looks like, tastes like</strong> e <strong>smells like</strong>, com foco na diferença entre usar <em>like</em> para comparação e usar adjetivos como em <em>sounds good</em> ou <em>sounds interesting</em>.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Também retomamos a palavra <strong>actual</strong>, reforçando que ela significa <strong>na verdade / real</strong> e não “atualmente”. Em seguida, revisamos rapidamente o uso de <strong>in, on</strong> e <strong>at</strong> para tempo e lugar, incluindo o raciocínio do triângulo de especificidade: <em>at</em> para pontos bem específicos, <em>on</em> para ruas, dias e superfícies, e <em>in</em> para espaços internos, cidades, países e períodos maiores de tempo.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              A parte principal da aula foi a introdução a <strong>directions</strong>. Trabalhamos frases como <em>turn left</em>, <em>turn right</em>, <em>go two blocks</em>, <em>go to the corner of...</em>, <em>it’s across the street</em>, <em>it’s down the street</em>, <em>it’s around the corner</em>, <em>it’s between...</em> e <em>next to</em>. Depois, você ouviu diálogos curtos e precisou localizar os lugares no mapa, identificando ruas, esquinas e referências como <em>traffic light</em> e <em>corner</em>.
+            </p>
+            <p style="margin:0;">
+              No final, ainda praticamos um detalhe de pronúncia e entonação muito natural do inglês, em perguntas de confirmação como <em>The bank?</em> e <em>A park?</em>, percebendo como a palavra importante recebe mais destaque na fala.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>sounds like</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) parece / soa como</em><br>
+                <small>That sounds like my brother.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>across the street</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) do outro lado da rua</em><br>
+                <small>The museum is across the street.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Revisão e estruturas</h3>
+            <ul>
+              <li><strong>sounds like</strong> – parece / soa como</li>
+              <li><strong>looks like</strong> – parece (na aparência)</li>
+              <li><strong>tastes like</strong> – tem gosto de / parece no sabor</li>
+              <li><strong>smells like</strong> – cheira a / parece no cheiro</li>
+              <li><strong>sounds good</strong> – parece bom</li>
+              <li><strong>sounds interesting</strong> – parece interessante</li>
+              <li><strong>actual</strong> – na verdade / real</li>
+              <li><strong>through</strong> – de... até...</li>
+              <li><strong>mall</strong> – shopping center</li>
+              <li><strong>market</strong> – mercado / supermercado</li>
+              <li><strong>look for</strong> – procurar</li>
+              <li><strong>address</strong> – endereço</li>
+            </ul>
+
+            <h3>Preposições e localização</h3>
+            <ul>
+              <li><strong>at</strong> – em (ponto específico)</li>
+              <li><strong>on</strong> – em / sobre (ruas, dias e superfícies)</li>
+              <li><strong>in</strong> – em / dentro de (cidades, países, cômodos, períodos maiores)</li>
+              <li><strong>near</strong> – perto</li>
+              <li><strong>next to</strong> – ao lado, colado</li>
+              <li><strong>between</strong> – entre</li>
+              <li><strong>corner</strong> – esquina</li>
+              <li><strong>traffic light</strong> – farol / semáforo</li>
+            </ul>
+
+            <h3>Directions</h3>
+            <ul>
+              <li><strong>turn left</strong> – vire à esquerda</li>
+              <li><strong>turn right</strong> – vire à direita</li>
+              <li><strong>go straight</strong> – siga reto</li>
+              <li><strong>go forward</strong> – siga em frente</li>
+              <li><strong>go down the street</strong> – siga pela rua / continue reto pela rua</li>
+              <li><strong>go two blocks</strong> – ande dois quarteirões</li>
+              <li><strong>across the street</strong> – do outro lado da rua</li>
+              <li><strong>down the street</strong> – mais à frente na mesma rua</li>
+              <li><strong>around the corner</strong> – ali pela esquina / nas redondezas da esquina</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>That sounds like my brother.</li>
+              <li>You look like my brother.</li>
+              <li>Sounds like fun.</li>
+              <li>Turn left on Bank Street.</li>
+              <li>Turn left at the corner.</li>
+              <li>Turn left at the light.</li>
+              <li>Go two blocks.</li>
+              <li>Go to Main Street.</li>
+              <li>It’s across the street.</li>
+              <li>It’s down the street.</li>
+              <li>It’s around the corner.</li>
+              <li>It’s between Main and Elm.</li>
+              <li>It’s next to the bank.</li>
+              <li>How do I get to the bank?</li>
+              <li>Is there a park near here?</li>
+              <li>The bank?</li>
+              <li>A park?</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>sounds like</strong> não é a mesma coisa que <strong>sounds good</strong>. Em <em>sounds like</em>, o <em>like</em> funciona como comparação: <em>That sounds like my brother.</em></li>
+              <li><strong>actual</strong> = <strong>na verdade / real</strong>, e não “atualmente”.</li>
+              <li><strong>on</strong> é usado com nome de rua: <em>on Bank Street</em>. Já <strong>at</strong> aparece com ponto específico: <em>at the corner</em>, <em>at the light</em>.</li>
+              <li><strong>in</strong> traz a ideia de “dentro”: <em>in my bedroom</em>, <em>in room 125</em>.</li>
+              <li><strong>next to</strong> = ao lado, bem colado. <strong>near</strong> = perto, mas não necessariamente colado.</li>
+              <li><strong>mall</strong> = shopping center. <strong>market</strong> = mercado / supermercado. Não confundir.</li>
+              <li><strong>go straight / go forward / go down the street</strong> podem aparecer em contextos parecidos de direção, todos com a ideia de seguir em frente.</li>
+              <li>Na escuta, o foco precisa ir para a palavra importante da frase. Em confirmações como <em>The bank?</em> e <em>A park?</em>, o artigo fica fraco e a palavra principal recebe o destaque.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/XXDOYj0Z1u0"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">71%</span></td>
+                <td class="talk-time">~43 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Bryan</span></td>
+                <td><span class="talk-percent">29%</span></td>
+                <td class="talk-time">~17 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>LER O POS AULA DE 2 A 3X NA SEMANA</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2026 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
